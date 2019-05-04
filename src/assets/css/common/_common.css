@@ -1,0 +1,76 @@
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-nowrap-center {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.flex-wrap-between-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-between-center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-wrap-around-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-nowrap-around-center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  /* Safari 7.0+ */
+  align-items: center;
+}
+
+.noselect {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.none {
+  display: none;
+}
