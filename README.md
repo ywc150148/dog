@@ -2,11 +2,11 @@
 
 > A Vue.js project
 
-> 此项目用来快速构建新的vue项目，此项目中配置好了常用的插件
+> 此项目是练习对接API的，目前是使用了国外的图片API,例如随机显示狗的图片。
 
 > 更新中...
 
-我的博客上面发布了我的学习笔记，博客地址[http://yapiguai.top](http://yapiguai.top)
+demo[http://yapiguai.top/vue/dog/index.html#/](http://yapiguai.top/vue/dog/index.html#/)
 
 ## Build Setup
 
