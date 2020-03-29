@@ -4,7 +4,7 @@
 //     global.API_BASE_PATH = 'https://cnodejs.org/'; // 发布环境
 //   }
 
-global.API_BASE_PATH = process.env.NODE_ENV === 'development' ? '/app/' : 'https://cnodejs.org/'
+global.API_BASE_PATH = process.env.NODE_ENV == 'development' ? '/app/' : 'https://cnodejs.org/'
 
 global.API = {
   OPEN: {

@@ -3,7 +3,6 @@
     <div class="tab-swiper">
       <div class="swiper-container" :style="{minHeight:viewHeight}">
         <div class="swiper-wrapper">
-          <!-- 左侧列表 -->
           <div class="swiper-slide swiper-slide-0">
             <div
               :class="swiperActive!=0?'swiper-slide-hidden':''"
@@ -11,7 +10,7 @@
             >
               <ul class="index-content" v-show="message.length>0">
                 <li v-for="(item,index) in message" :key="index">
-                  <img v-lazy="item" :style="{background:randomBg()}" />
+                  <img v-lazy="item" :style="{background:randomBg()}">
                 </li>
               </ul>
             </div>
@@ -28,11 +27,11 @@
             <!-- <div class="text-center" v-show="message.length<1">Loading...</div> -->
           </div>
 
-          <!-- 右侧分类 -->
           <div
             class="swiper-slide"
             :style="{height:swiperActive!=1?viewHeight:'auto',overflow:'hidden'}"
           >
+
             <p class="breeds-tips text-center">选择显示以下哪个品种的狗狗的随机图片？</p>
 
             <ul class="breeds-ul">
@@ -81,7 +80,6 @@
       </div>
     </div>
 
-    <!-- 底部tabar -->
     <div id="app-tabbar" :style="{bottom:hideTabber===true?'-1rem':'0',transition: '.5s'}">
       <ul class="app-tabbar-ul flex-wrap-between-center">
         <li v-for="(item,index) in tabber" :key="index" @click="onTabbar(index)">
@@ -107,7 +105,7 @@ import loadmore from '@/components/common/loadmore'
 export default {
   name: 'index',
   data () {
-    // var mySwiper
+    var mySwiper
     return {
       tabbarActive: 0,
       tabber: [
@@ -134,15 +132,14 @@ export default {
         state: 0,
         throttle: false
       },
-      hideTabber: false,
-      mySwiper: null
+      hideTabber: false
     }
   },
   watch: {
     swiperActive (n) {
       this.tabbarActive = n // 改变taber
 
-      if (n === 1 && this.breedslist === '') {
+      if (n === 1 && this.breedslist == '') {
         this.getBreedsList()
       }
     },
@@ -239,7 +236,7 @@ export default {
       this.lm.throttle = true
       this.lm.state = 1
       let breed = this.cateActive !== 666 ? 'breed/' : ''
-      let catesub = this.catesub !== '' ? '/' + this.catesub : ''
+      let catesub = this.catesub != '' ? '/' + this.catesub : ''
       let plural = this.cateActive !== 666 ? '/images/' : '/image/'
       let url =
         'https://dog.ceo/api/' +
@@ -262,7 +259,7 @@ export default {
             self.lm.throttle = false
           }
         })
-        .catch(function () {
+        .catch(function (error) {
           self.lm.throttle = false
           self.lm.state = self.message.length >= self.count ? 2 : 3
         })
@@ -276,7 +273,7 @@ export default {
         .then(function (response) {
           if (
             response.data.status === 'success' &&
-            response.data.message !== ''
+            response.data.message != ''
           ) {
             let arr = []
 
@@ -289,10 +286,17 @@ export default {
             }
 
             self.breedslist = arr
+
+            // console.log("self.breedslist", self.breedslist);
           }
         })
+        .catch(function (error) {})
     },
     triggerBottom: function () {
+      // console.log("dddddddddddd");
+
+      // console.log("this.unmarkpageY------", this.unmarkpageY);
+      // console.log("this.lm.throttle------", this.lm.throttle);
       // 触发底部
       if (this.lm.throttle === false) {
         this.getData()
@@ -332,7 +336,7 @@ export default {
       this.cateActive = index
       this.message = []
       this.lm.throttle = false
-      this.unmarkpageY = false
+      this.unmarkpageY === false
       this.pageYOffset = 0
       this.getData()
     }
