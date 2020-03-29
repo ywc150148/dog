@@ -7,13 +7,14 @@ import store from './config/store.js'
 import api from './config/api.js'
 
 import axios from './config/axios.js'
-Vue.prototype.$axios = axios
 
 // 自己写的组件
 // import lazyimg from './components/global/lazyimg'
 // Vue.use(lazyimg);
 
 import VueLazyLoad from 'vue-lazyload'
+Vue.prototype.$axios = axios
+
 Vue.use(VueLazyLoad, {
   error: require('./assets/imgs/error.png'),
   loading: ''
